@@ -1,0 +1,3 @@
+Move API calls into ResourceCalculator.js and make a single call for every item.
+Calculate profit for each city.
+Add Item List for other resources other than wood.

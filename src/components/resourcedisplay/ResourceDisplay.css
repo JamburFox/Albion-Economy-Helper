@@ -1,0 +1,19 @@
+.display-container-inline {
+    display: inline-block;
+    padding: 10px;
+}
+
+.display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.resource-name{
+    font-size: 20px;
+}
+
+.resource-image {
+    max-width: 150px
+}
