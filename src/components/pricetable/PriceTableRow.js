@@ -4,7 +4,7 @@ import { Component } from 'react';
 
 class PriceTableRow extends Component {
     render(){
-        const { city, highlightedCity, prices, count, listingType } = this.props;
+        const { city, highlightedCity, prices, listingType } = this.props;
         let price = 0;
         if (prices){
             switch(listingType){
@@ -29,7 +29,7 @@ class PriceTableRow extends Component {
         return (<>
             <tr className={city === highlightedCity ? 'highlighted-row' : ''}>
                 <td>{city}</td>
-                <td>{price * count}</td>
+                <td>{price}</td>
             </tr>
         </>);
     }

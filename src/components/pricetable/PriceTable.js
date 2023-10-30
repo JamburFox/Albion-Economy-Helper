@@ -5,68 +5,8 @@ import PriceTableRow from './PriceTableRow';
 
 
 class PriceTable extends Component {
-    constructor(){
-        super();
-        this.state = {
-            prices: []
-        }
-    }
-
-
-    getPrices = async (itemName) => {
-        try {
-            console.log(`Fetching Prices for ${itemName}`);
-            const response = await fetch(`https://east.albion-online-data.com/api/v2/stats/prices/${itemName}`, {
-                method: 'get'
-            });
-
-            if(!response.ok){
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const result = await response.json();
-
-            let prices = [];
-            for(let i = 0; i < result.length; i++){
-                let city = result[i].city;
-                const cities = ["Martlock", "Bridgewatch", "Lymhurst", "Fort Sterling", "Thetford", "Caerleon"];
-                if (cities.includes(city)){
-                    prices.push(result[i]);
-                }
-            }
-            this.setState({prices: prices});
-            return prices;
-        } catch (err) {
-            console.error(err);
-            return null;
-        }
-    }
-
-    componentDidMount(){
-        const { marketName, listing, count, onPrices } = this.props;
-        this.getPrices(marketName)
-        .then(result => {
-            if (onPrices){
-                onPrices(result);
-            }
-        });
-    }
-
-    componentDidUpdate(prevProps, prevState){
-        const { marketName, listing, count, onPrices } = this.props;
-
-        if (prevProps.marketName !== marketName) {
-            this.getPrices(marketName)
-            .then(result => {
-                if (onPrices){
-                    onPrices(result);
-                }
-            });
-        }
-        console.log(this.state.highlightedCity);
-    }
-
     render () {
-        const { marketName, listingType, count } = this.props;
+        const { marketName, listingType, prices } = this.props;
 
         let label = "Price";
         switch(listingType){
@@ -96,12 +36,12 @@ class PriceTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <PriceTableRow city={"Martlock"} prices={this.state.prices.filter(item => item.city === "Martlock")[0]} count={count} listingType={listingType} />
-                    <PriceTableRow city={"Bridgewatch"} prices={this.state.prices.filter(item => item.city === "Bridgewatch")[0]} count={count} listingType={listingType} />
-                    <PriceTableRow city={"Lymhurst"} prices={this.state.prices.filter(item => item.city === "Lymhurst")[0]} count={count} listingType={listingType} />
-                    <PriceTableRow city={"Fort Sterling"} prices={this.state.prices.filter(item => item.city === "Fort Sterling")[0]} count={count} listingType={listingType} />
-                    <PriceTableRow city={"Thetford"} prices={this.state.prices.filter(item => item.city === "Thetford")[0]} count={count} listingType={listingType} />
-                    <PriceTableRow city={"Caerleon"} prices={this.state.prices.filter(item => item.city === "Caerleon")[0]} count={count} listingType={listingType} />
+                    <PriceTableRow city={"Martlock"} prices={prices?.filter(item => item.city === "Martlock")[0]} listingType={listingType} />
+                    <PriceTableRow city={"Bridgewatch"} prices={prices?.filter(item => item.city === "Bridgewatch")[0]} listingType={listingType} />
+                    <PriceTableRow city={"Lymhurst"} prices={prices?.filter(item => item.city === "Lymhurst")[0]} listingType={listingType} />
+                    <PriceTableRow city={"Fort Sterling"} prices={prices?.filter(item => item.city === "Fort Sterling")[0]} listingType={listingType} />
+                    <PriceTableRow city={"Thetford"} prices={prices?.filter(item => item.city === "Thetford")[0]} listingType={listingType} />
+                    <PriceTableRow city={"Caerleon"} prices={prices?.filter(item => item.city === "Caerleon")[0]} listingType={listingType} />
                 </tbody>
                 </table>
         </>);

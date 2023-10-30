@@ -10,12 +10,12 @@ class CitySelect extends Component {
             <div className='panel'>
                 <label>{label}</label>
                 <select onChange={onCityChange}>
-                    <option key="lymhurst" value="lymhurst">Lymhurst</option>
-                    <option key="martlock" value="martlock">Martlock</option>
-                    <option key="bridgewatch" value="bridgewatch">Bridgewatch</option>
-                    <option key="fort_sterling" value="fort_sterling">Fort Sterling</option>
-                    <option key="thetford" value="thetford">Thetford</option>
-                    <option key="caerleon" value="caerleon">Caerleon</option>
+                    <option key="Lymhurst" value="Lymhurst">Lymhurst</option>
+                    <option key="Martlock" value="Martlock">Martlock</option>
+                    <option key="Bridgewatch" value="Bridgewatch">Bridgewatch</option>
+                    <option key="Fort Sterling" value="Fort Sterling">Fort Sterling</option>
+                    <option key="Thetford" value="Thetford">Thetford</option>
+                    <option key="Caerleon" value="Caerleon">Caerleon</option>
                 </select>
             </div>
         );
