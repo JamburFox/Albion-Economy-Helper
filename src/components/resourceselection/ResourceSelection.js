@@ -28,7 +28,7 @@ class ResourceSelection extends Component {
         }
 
         return (
-            <div className='panel'>
+            <div className='selection'>
                 <label>Resource</label>
                 <select onChange={onRefineTypeChange}>
                     <option key="plank" value="plank">Plank</option>

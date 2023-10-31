@@ -7,7 +7,7 @@ class CitySelect extends Component {
         const { label, onCityChange } = this.props;
 
         return (
-            <div className='panel'>
+            <div className='selection'>
                 <label>{label}</label>
                 <select onChange={onCityChange}>
                     <option key="Lymhurst" value="Lymhurst">Lymhurst</option>

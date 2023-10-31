@@ -7,7 +7,7 @@ class CountSelector extends Component {
         const { label , onChange, defaultValue, min, max} = this.props;
 
         return (
-            <div className='panel'>
+            <div className='selection'>
                 <label className="label">{label}</label>
                 <input onChange={onChange} type="number" defaultValue={defaultValue} {...(min !== undefined ? {min: min} : {})} {...(max !== undefined ? {max: max} : {})} />
             </div>

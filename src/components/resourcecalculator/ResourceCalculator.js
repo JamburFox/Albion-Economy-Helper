@@ -208,17 +208,23 @@ class ResourceCalculator extends Component {
 
         return (
             <div>
-                <h1>Resources</h1>
-                {displayedResources}
-                <p>Refine Cost: <b>{(this.state.refineCost/1000).toFixed(1)} K</b></p>
-                <p>Total Weight: <b>{parseInt(this.state.totalWeight)} Kg</b></p>
+                <div className='panel'>
+                    <h1>Resources</h1>
+                    {displayedResources}
+                    <p>Refine Cost: <b>{(this.state.refineCost/1000).toFixed(1)} K</b></p>
+                    <p>Total Weight: <b>{parseInt(this.state.totalWeight)} Kg</b></p>
+                </div>
+                <div className='panel'>
                 <h1>Product</h1>
-                {displayedProduct}
-                <CitySelect label={"Resources Buy City"} onCityChange={this.onBuyCityChange} />
-                <CitySelect label={"Product Sell City"} onCityChange={this.onSellCityChange} />
-                <p>Total Buy Cost: <b>{(lymTotalCost/1000).toFixed(1)} K</b></p>
-                <p>Total Sell Price: <b>{(lymTotalRevenue/1000).toFixed(1)} K</b></p>
-                <p>Total Profit: <b>{(lymTotalProfit / 1000).toFixed(1)} K</b></p>
+                    {displayedProduct}
+                </div>
+                <div className='panel'>
+                    <CitySelect label={"Resources Buy City"} onCityChange={this.onBuyCityChange} />
+                    <CitySelect label={"Product Sell City"} onCityChange={this.onSellCityChange} />
+                    <p>Total Buy Cost: <b>{(lymTotalCost/1000).toFixed(1)} K</b></p>
+                    <p>Total Sell Price: <b>{(lymTotalRevenue/1000).toFixed(1)} K</b></p>
+                    <p>Total Profit: <b>{(lymTotalProfit / 1000).toFixed(1)} K</b></p>
+                </div>
             </div>
         );
     }

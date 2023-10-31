@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body{
+  background-color: #B3A394;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -38,5 +42,13 @@
 }
 
 .panel {
+  padding: 8px;
+  background-color: #FFFFFF;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 0px 30px;
+}
+
+.selection {
   padding: 8px;
 }

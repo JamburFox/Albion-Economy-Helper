@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
 import Navigation from './components/navigation/Navigation';
@@ -52,19 +51,21 @@ class App extends Component {
     switch(route){
       case "home":
         basePage = (<>
-          <h1>Home</h1>
-          <p>A simple Refining Helper Tool made by Jambur</p>
-          <p>This project uses the <a href='https://www.albion-online-data.com'>Albion Data Project API</a></p>
+          <div className='panel'>
+            <p>A simple Refining Helper Tool made by Jambur</p>
+            <p>This project uses the <a href='https://www.albion-online-data.com'>Albion Data Project API</a></p>
+          </div>
         </>);
       break;
 
       case "refining":
         basePage = (<>
-          <h1>Refining</h1>
-          <ResourceSelection onRefineTypeChange={this.onRefineTypeChange} onTierChange={this.onTierChange} />
-          <CountSelector label="Number of Resources" onChange={this.onCountChange} defaultValue={itemCount} min={0} />
-          <CountSelector label="Refining Return Rate" onChange={this.onReturnRateChange} defaultValue={returnRate} min={0} max={100} />
-          <CountSelector label="Cost per 100 food" onChange={this.onFoodChange} defaultValue={foodCost} min={0} />
+          <div className='panel'>
+            <ResourceSelection onRefineTypeChange={this.onRefineTypeChange} onTierChange={this.onTierChange} />
+            <CountSelector label="Number of Resources" onChange={this.onCountChange} defaultValue={itemCount} min={0} />
+            <CountSelector label="Refining Return Rate" onChange={this.onReturnRateChange} defaultValue={returnRate} min={0} max={100} />
+            <CountSelector label="Cost per 100 food" onChange={this.onFoodChange} defaultValue={foodCost} min={0} />
+          </div>
           <ResourceCalculator count={itemCount} returnRate={returnRate} foodCost={foodCost} tier={itemTier}/>
         </>);
       break;
@@ -79,7 +80,9 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation onRouteChange={this.onRouteChange} />
-        {basePage}
+        <div className='page' style={{ marginTop: '80px' }}>
+          {basePage}
+        </div>
       </div>
     );
   }
