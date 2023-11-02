@@ -4,6 +4,7 @@ import { Component } from 'react';
 import ResourceDisplay from '../resourcedisplay/ResourceDisplay';
 import CitySelect from '../cityselect/CitySelect';
 import AlbionItemData from '../../AlbionItemData';
+import RefiningSideBar from '../refiningsidebar/RefiningSideBar';
 
 import { plankResources } from '../../albionresources/Planks';
 import { resourcesDict } from '../../albionresources/ResourcesDB';
@@ -16,9 +17,7 @@ class ResourceCalculator extends Component {
             displayedProductInfo: null,
             displayedResourcesInfo: [],
             refineCost: 0,
-            totalWeight: 0,
-            buyCity: "Lymhurst",
-            sellCity: "Lymhurst"
+            totalWeight: 0
         }
       }
 
@@ -166,8 +165,8 @@ class ResourceCalculator extends Component {
     }
     
     render () {
-        const { count, returnRate, foodCost, tier } = this.props;
-        const { displayedProductInfo, displayedResourcesInfo, buyCity, sellCity } = this.state;
+        const { count, returnRate, foodCost, tier, buyCity, sellCity } = this.props;
+        const { displayedProductInfo, displayedResourcesInfo } = this.state;
         let lymTotalCost = 0;
         let lymTotalRevenue = 0;
         let lymTotalProfit = 0;
@@ -208,22 +207,14 @@ class ResourceCalculator extends Component {
 
         return (
             <div>
+                <RefiningSideBar weight={this.state.totalWeight} refineCost={this.state.refineCost} cost={lymTotalCost} revenue={lymTotalRevenue} profit={lymTotalProfit} />
                 <div className='panel'>
                     <h1>Resources</h1>
                     {displayedResources}
-                    <p>Refine Cost: <b>{(this.state.refineCost/1000).toFixed(1)} K</b></p>
-                    <p>Total Weight: <b>{parseInt(this.state.totalWeight)} Kg</b></p>
                 </div>
                 <div className='panel'>
                 <h1>Product</h1>
                     {displayedProduct}
-                </div>
-                <div className='panel'>
-                    <CitySelect label={"Resources Buy City"} onCityChange={this.onBuyCityChange} />
-                    <CitySelect label={"Product Sell City"} onCityChange={this.onSellCityChange} />
-                    <p>Total Buy Cost: <b>{(lymTotalCost/1000).toFixed(1)} K</b></p>
-                    <p>Total Sell Price: <b>{(lymTotalRevenue/1000).toFixed(1)} K</b></p>
-                    <p>Total Profit: <b>{(lymTotalProfit / 1000).toFixed(1)} K</b></p>
                 </div>
             </div>
         );

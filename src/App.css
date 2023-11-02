@@ -44,8 +44,8 @@ body{
 .panel {
   padding: 8px;
   background-color: #FFFFFF;
-  border: 2px solid black;
-  border-radius: 10px;
+  border: 2px solid rgb(87, 87, 87);
+  border-radius: 3px;
   margin: 0px 30px;
 }
 

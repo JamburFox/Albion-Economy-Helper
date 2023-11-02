@@ -1,0 +1,38 @@
+.sidebar {
+    position: fixed;
+    top: 0px;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    margin-top: 60px;
+    padding: 20px 0;
+    background-color: #B3A394;
+    box-shadow: 0 0 5px black;
+    transition: left 0.3s;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.expand-button {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    margin-top: 60px;
+    width: 50px;
+    background-color: #B3A394;
+    box-shadow: 0 0 5px black;
+    border: none;
+    transition: left 0.3s;
+    cursor: pointer;
+    z-index: 1;
+    transform: rotate(0deg);
+}
+
+.expand-button.open {
+    left: 300px;
+    transform: rotate(180deg);
+}

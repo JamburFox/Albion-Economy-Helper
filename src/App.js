@@ -16,7 +16,9 @@ class App extends Component {
       itemTier: 2,
       itemCount: 1,
       returnRate : 36.7,
-      foodCost : 1000
+      foodCost : 1000,
+      buyCity: "Lymhurst",
+      sellCity: "Lymhurst"
     }
   }
 
@@ -44,8 +46,16 @@ class App extends Component {
     this.setState({itemTier: parseFloat(event.target.value)});
   }
 
+  onBuyCityChange = (event) => {
+    this.setState({buyCity: event.target.value});
+  }
+
+  onSellCityChange = (event) => {
+    this.setState({sellCity: event.target.value});
+  }
+
   render (){
-    const { route, itemTier, itemCount, returnRate, foodCost } = this.state;
+    const { route, itemTier, itemCount, returnRate, foodCost, buyCity, sellCity } = this.state;
     let basePage = (<></>);
     
     switch(route){
@@ -65,8 +75,10 @@ class App extends Component {
             <CountSelector label="Number of Resources" onChange={this.onCountChange} defaultValue={itemCount} min={0} />
             <CountSelector label="Refining Return Rate" onChange={this.onReturnRateChange} defaultValue={returnRate} min={0} max={100} />
             <CountSelector label="Cost per 100 food" onChange={this.onFoodChange} defaultValue={foodCost} min={0} />
+            <CitySelect label={"Resources Buy City"} onCityChange={this.onBuyCityChange} />
+            <CitySelect label={"Product Sell City"} onCityChange={this.onSellCityChange} />
           </div>
-          <ResourceCalculator count={itemCount} returnRate={returnRate} foodCost={foodCost} tier={itemTier}/>
+          <ResourceCalculator count={itemCount} returnRate={returnRate} foodCost={foodCost} tier={itemTier} buyCity={buyCity} sellCity={sellCity} />
         </>);
       break;
 
