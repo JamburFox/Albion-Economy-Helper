@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Albion-Economy-Helper/static/css/main.7ee17b71.css",
-    "main.js": "/Albion-Economy-Helper/static/js/main.7d2dd58c.js",
+    "main.css": "/Albion-Economy-Helper/static/css/main.0e432491.css",
+    "main.js": "/Albion-Economy-Helper/static/js/main.c7798303.js",
     "static/js/787.49220f03.chunk.js": "/Albion-Economy-Helper/static/js/787.49220f03.chunk.js",
     "static/media/SilverLogo.png": "/Albion-Economy-Helper/static/media/SilverLogo.025ba99fe5648f3aad7b.png",
     "index.html": "/Albion-Economy-Helper/index.html",
-    "main.7ee17b71.css.map": "/Albion-Economy-Helper/static/css/main.7ee17b71.css.map",
-    "main.7d2dd58c.js.map": "/Albion-Economy-Helper/static/js/main.7d2dd58c.js.map",
+    "main.0e432491.css.map": "/Albion-Economy-Helper/static/css/main.0e432491.css.map",
+    "main.c7798303.js.map": "/Albion-Economy-Helper/static/js/main.c7798303.js.map",
     "787.49220f03.chunk.js.map": "/Albion-Economy-Helper/static/js/787.49220f03.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ee17b71.css",
-    "static/js/main.7d2dd58c.js"
+    "static/css/main.0e432491.css",
+    "static/js/main.c7798303.js"
   ]
 }
